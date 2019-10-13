@@ -2,4 +2,4 @@
 # Sample input: 7, [1, 5, 10]
 # Sample output: 3 (2x1 + 1x5)
 def minNumberOfCoinsForChange(n, denoms):
-  return 0
+  minNumber = [0 for num in range(n)]
