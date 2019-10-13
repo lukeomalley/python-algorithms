@@ -6,3 +6,5 @@ def minNumberOfCoinsForChange(n, denoms):
   print(minNumber)
 
 minNumberOfCoinsForChange(10, [1, 5, 10])
+
+print(minNumberOfCoinsForChange(7, [1, 5, 10]) == 3)
