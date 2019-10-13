@@ -3,3 +3,6 @@
 # Sample output: 3 (2x1 + 1x5)
 def minNumberOfCoinsForChange(n, denoms):
   minNumber = [0 for num in range(n)]
+  print(minNumber)
+
+minNumberOfCoinsForChange(10, [1, 5, 10])
