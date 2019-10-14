@@ -8,15 +8,15 @@ class MinHeap:
   # O(n) TIME | O(1) SPACE
   def buildHeap(self, array):
     firstParentIdx = (len(array) - 2) // 2
-    for currentIdx in reversed(range(firstParentIdx)):
+    for currentIdx in reversed(range(firstParentIdx + 1)):
       self.siftDown(currentIdx, len(array) - 1, array)
     return array
 
   # O(log(n)) TIME | O(1) SPACE
   def siftDown(self, currentIdx, endIdx, heap):
-    childOneIdx = (currentIdx * 2) + 1
+    childOneIdx = currentIdx * 2 + 1
     while childOneIdx <= endIdx:
-      childTwoIdx = (currentIdx * 2) + 2 if (currentIdx * 2) + 2 <= endIdx else -1
+      childTwoIdx = currentIdx * 2 + 2 if currentIdx * 2 + 2 <= endIdx else -1
       if childTwoIdx != -1 and heap[childTwoIdx] < heap[childOneIdx]:
         indexToSwap = childTwoIdx
       else:
@@ -24,9 +24,9 @@ class MinHeap:
       if heap[indexToSwap] < heap[currentIdx]:
         self.swap(currentIdx, indexToSwap, heap)
         currentIdx = indexToSwap
-        childOneIdx = (currentIdx * 2) + 1
+        childOneIdx = currentIdx * 2 + 1
       else:
-        break
+        return
 
 
   # O(log(n)) TIME | O(1) SPACE
@@ -55,5 +55,8 @@ class MinHeap:
     self.heap.append(value)
     self.siftUp(len(self.heap) - 1, self.heap)
 
-
+test1 = MinHeap([2, 3, 1])
 minHeap = MinHeap([45, 23, 32, 23, 75, 23, 76, 23, 12, 432, 3, 2, 34, 45])
+print(minHeap.heap[0])
+print(test1.heap)
+print(min(test1.heap))
