@@ -2,8 +2,13 @@
 # Sample input: 7, [1, 5, 10]
 # Sample output: 3 (2x1 + 1x5)
 def minNumberOfCoinsForChange(n, denoms):
-  minNumber = [0 for num in range(n)]
-  print(minNumber)
+  minNumOfCoins = [float("inf") for num in range(n + 1)]
+  minNumOfCoins[0] = 0
+  for denom in denoms:
+    for amount in range(len(minNumOfCoins)):
+      if denom <= amount:
+        minNumOfCoins[amount] = min(minNumOfCoins[amount], 1 + minNumOfCoins[amount - denom])
+  return minNumOfCoins[n] if minNumOfCoins[n] != float("inf") else -1
 
 minNumberOfCoinsForChange(10, [1, 5, 10])
 
