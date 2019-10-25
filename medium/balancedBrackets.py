@@ -7,6 +7,7 @@
 # match a corresponding opening bracket that comes after it. 
 # Similarly, brackets cannot overlap each other as in "[(])".
 
+# O(n) TIME | O(n) SPACE
 def balancedBrackets(string):
   map = {
     '(': ')',
@@ -26,5 +27,3 @@ def balancedBrackets(string):
 
   if len(stack) == 0: return True
   return False
-
-print(balancedBrackets('(({{}))'))
