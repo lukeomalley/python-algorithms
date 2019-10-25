@@ -8,4 +8,23 @@
 # Similarly, brackets cannot overlap each other as in "[(])".
 
 def balancedBrackets(string):
-  return None
+  map = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
+  }
+  stack = []
+
+  for bracket in string:
+    if bracket in ['(', '{', '[']:
+      stack.append(bracket)
+    else:
+      if map[stack.pop()] == bracket:
+        continue
+      else:
+        return False
+
+  if len(stack) == 0: return True
+  return False
+
+print(balancedBrackets('(({{}))'))
